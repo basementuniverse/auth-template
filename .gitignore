@@ -1,0 +1,13 @@
+/.vscode
+/resources
+
+# Server
+/server/build
+/server/node_modules
+/server/.env.*
+!/server/.env.example
+/server/firebase*.json
+
+# Client
+/client/build
+/client/node_modules
