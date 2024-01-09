@@ -27,3 +27,26 @@ The client uses the firebase web SDK to sign in and get a token.
 9. Go to https://github.com/settings/applications/new and create a new application.
 10. Copy the URL provided in the firebase console into the github app callback URL field (in this case, it's https://auth-template-f736b.firebaseapp.com/__/auth/handler)
 11. Copy in the github client id and generate a secret, copy them into the Github auth config in firebase.
+
+In most real-world cases, we would want multiple firebase projects and github apps (e.g. development and production).
+
+## Server ENV variables
+
+Create .env.local in the server directory with the following variables:
+
+```env
+NAME="App name here"
+PORT=8000
+URL=http://localhost:8000
+APP_URL=http://localhost:3000
+
+DATABASE_CLIENT=sqlite3
+DATABASE_PATH=../database/database.sqlite
+
+SMTP_HOST=sandbox.smtp.mailtrap.io
+SMTP_PORT=587
+SMTP_USERNAME=...
+SMTP_PASSWORD=...
+EMAIL_FROM_NAME=Admin
+EMAIL_FROM_ADDRESS=admin@auth-template.local
+```
