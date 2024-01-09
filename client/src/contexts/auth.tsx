@@ -124,7 +124,7 @@ export function AuthProvider({ children }: AuthProviderProps): ReactElement {
 
       return true;
     },
-    [auth]
+    [auth, clearCachedToken, setCachedToken]
   );
 
   const loginWithGoogle = useCallback(async (): Promise<boolean> => {
@@ -148,7 +148,7 @@ export function AuthProvider({ children }: AuthProviderProps): ReactElement {
     setCachedToken(await result.user.getIdToken(true));
 
     return true;
-  }, [auth]);
+  }, [auth, clearCachedToken, setCachedToken]);
 
   const loginWithGithub = useCallback(async (): Promise<boolean> => {
     setPending(true);
@@ -171,7 +171,7 @@ export function AuthProvider({ children }: AuthProviderProps): ReactElement {
     setCachedToken(await result.user.getIdToken(true));
 
     return true;
-  }, [auth]);
+  }, [auth, clearCachedToken, setCachedToken]);
 
   const logout = useCallback(async (): Promise<void> => {
     setPending(true);
@@ -190,7 +190,7 @@ export function AuthProvider({ children }: AuthProviderProps): ReactElement {
       setPending(false);
       setCachedToken(user?.getIdToken(true) ?? '');
     });
-  }, [auth]);
+  }, [auth, setCachedToken]);
 
   return (
     <AuthContext.Provider

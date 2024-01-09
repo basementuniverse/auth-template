@@ -30,7 +30,7 @@ export default function Login(): ReactElement {
         navigate('/dashboard');
       }
     },
-    [loginWithEmailAndPassword]
+    [loginWithEmailAndPassword, navigate]
   );
 
   const handleLoginWithGoogle = useCallback(async () => {
@@ -39,7 +39,7 @@ export default function Login(): ReactElement {
     if (result) {
       navigate('/dashboard');
     }
-  }, [loginWithGoogle]);
+  }, [loginWithGoogle, navigate]);
 
   const handleLoginWithGithub = useCallback(async () => {
     const result = await loginWithGithub();
@@ -47,7 +47,7 @@ export default function Login(): ReactElement {
     if (result) {
       navigate('/dashboard');
     }
-  }, [loginWithGithub]);
+  }, [loginWithGithub, navigate]);
 
   return (
     <>
